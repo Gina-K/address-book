@@ -2,9 +2,10 @@ import {Contact} from '../data/types.ts';
 
 type Props = {
   contact: Contact;
+  countries: string[];
 }
 
-export const ContactCard = ({contact}: Props) => {
+export const ContactCard = ({contact, countries}: Props) => {
   const {firstName, lastName, email, country} = contact;
   // const isEditing = false;
   const isEditing = true;
@@ -31,7 +32,7 @@ export const ContactCard = ({contact}: Props) => {
         <label htmlFor="country" style={{visibility}}>Country: <span aria-label="required">*</span></label>
         <select id="country" name="country" value={country} required disabled={!isEditing}>
           <option value="">Please choose a country</option>
-          <option value={country}>{country}</option>
+          {countries.map((country: string) => <option value={country}>{country}</option>)}
         </select>
       </div>
     </>
