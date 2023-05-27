@@ -1,9 +1,9 @@
-import {PLACEHOLDER_CONTACTS} from '../data/constants.ts';
 import {Contact} from '../data/types.ts';
+import {useContacts} from '../hooks/useContacts.ts';
 import {ContactListItem} from './ContactListItem.tsx';
 
 export const ContactList = () => {
-  const contacts = PLACEHOLDER_CONTACTS;
+  const contacts = useContacts();
 
   return (
     <>

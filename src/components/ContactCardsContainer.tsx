@@ -1,20 +1,73 @@
-import {getNames} from 'country-list';
+import {useState} from 'react';
 
-import {PLACEHOLDER_CONTACTS} from '../data/constants.ts';
 import type {Contact} from '../data/types.ts';
-import {ContactCard} from './ContactCard.tsx';
+import {useContacts} from '../hooks/useContacts.ts';
+import {useSaveContact} from '../hooks/useSaveContact.ts';
+import {ContactCardWrapper} from './ContactCardWrapper.tsx';
 
 export const ContactCardsContainer = () => {
-  const contacts = PLACEHOLDER_CONTACTS;
-  const countryList: string[] = getNames();
+  const initialContact = {
+    id: '',
+    firstName: 'Init',
+    lastName: 'Contact',
+    email: 'init.contact@example.com',
+    country: 'Angola',
+  };
+
+  const contacts = useContacts();
+  const {saveEditedContact, saveAddedContact} = useSaveContact();
+
+  const [currentContact, setCurrentContact] = useState(initialContact);
+  const [isAdding, setIsAdding] = useState(false);
+
+  const handleContactChange = (e) => {
+    setCurrentContact({
+      ...currentContact,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmitAfterEditing = (e) => {
+    e.preventDefault();
+    saveEditedContact(currentContact);
+  };
+
+  const handleSubmitAfterAdding = (e) => {
+    e.preventDefault();
+    saveAddedContact(currentContact);
+    setIsAdding(false);
+  };
+
+  const handleAddContact = () => {
+    setIsAdding(true);
+  };
 
   return (
-    <>
+    <ul>
+      <button type="button" onClick={handleAddContact}>Add contact</button>
+
+      {isAdding &&
+        <ContactCardWrapper contact={initialContact}
+                            onSubmit={handleSubmitAfterAdding}
+                            onChange={handleContactChange}
+                            setCurrentContact={setCurrentContact}
+                            currentContact={currentContact}
+                            forceEditing={true}
+                            setIsAdding={setIsAdding}
+        />}
+
       {contacts.map((contact: Contact) => (
         <li key={contact.id}>
-          <ContactCard contact={contact} countries={countryList}/>
+          <ContactCardWrapper contact={contact}
+                              onSubmit={handleSubmitAfterEditing}
+                              onChange={handleContactChange}
+                              setCurrentContact={setCurrentContact}
+                              currentContact={currentContact}
+                              forceEditing={false}
+                              setIsAdding={setIsAdding}
+          />
         </li>
       ))}
-    </>
+    </ul>
   );
 };
