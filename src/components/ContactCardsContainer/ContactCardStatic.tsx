@@ -9,7 +9,7 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
   const {firstName, lastName, email, country} = contact;
 
   return (
-    <div>
+    <div className="card-item__static">
       <div>
         <div>
           <span>{firstName}</span>
@@ -27,7 +27,7 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
           <span>{country}</span>
         </div>
 
-        <div>
+        <div className="card-item__button_align_right">
           <button type="button" onClick={onEdit}>Edit</button>
         </div>
       </div>

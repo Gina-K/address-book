@@ -36,7 +36,7 @@ export const ContactCardForm = ({
   } = currentContact;
 
   return (
-    <form onSubmit={onSave}>
+    <form onSubmit={onSave} className="card-item__form">
       <div>
         <ValidatedTextInput name="firstName"
                             type="text"
@@ -79,7 +79,7 @@ export const ContactCardForm = ({
           Country
         </SelectInput>
 
-        <div>
+        <div className="card-item__button_align_right">
           <button type="button" onClick={onCancel}>Cancel</button>
           <button type="submit">Save</button>
         </div>

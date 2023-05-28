@@ -51,23 +51,28 @@ export const ContactCardsContainer = () => {
   };
 
   return (
-    <ul>
-      <button type="button" onClick={handleAddContact}>Add contact</button>
+    <ul className="cards-container">
+      <li className="card-item card-item__add-btn">
+        <button type="button" onClick={handleAddContact}>Add contact</button>
+      </li>
 
       {isAdding &&
-        <ContactCardWrapper contact={initialContact}
-                            onSubmit={handleSubmitAfterAdding}
-                            onChange={handleContactChange}
-                            setCurrentContact={setCurrentContact}
-                            currentContact={currentContact}
-                            forceEditing={true}
-                            setIsAdding={setIsAdding}
-                            hasActiveCard={hasActiveCard}
-                            setHasActiveCard={setHasActiveCard}
-        />}
+        <li className="card-item">
+          <ContactCardWrapper contact={initialContact}
+                              onSubmit={handleSubmitAfterAdding}
+                              onChange={handleContactChange}
+                              setCurrentContact={setCurrentContact}
+                              currentContact={currentContact}
+                              forceEditing={true}
+                              setIsAdding={setIsAdding}
+                              hasActiveCard={hasActiveCard}
+                              setHasActiveCard={setHasActiveCard}
+          />
+        </li>
+      }
 
       {contacts.map((contact: Contact) => (
-        <li key={contact.id}>
+        <li key={contact.id} className="card-item">
           <ContactCardWrapper contact={contact}
                               onSubmit={handleSubmitAfterEditing}
                               onChange={handleContactChange}

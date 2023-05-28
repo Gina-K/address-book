@@ -58,7 +58,9 @@ export const ContactCardWrapper = ({
 
   return (
     <>
-      <button type="button" onClick={handleDelete}>Delete</button>
+      <div className="card-item__button_align_right">
+        <button type="button" onClick={handleDelete}>Delete</button>
+      </div>
       {isEditing ?
         <ContactCardForm contact={contact}
                          onSave={handleSave}

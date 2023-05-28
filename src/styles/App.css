@@ -1,0 +1,24 @@
+.page-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: lightgray;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  border: solid gray;
+}
+
+.page-title {
+  border: solid gray;
+  text-align: center;
+  flex-grow: 2;
+}
+
+.navigation {
+  border: solid gray;
+}

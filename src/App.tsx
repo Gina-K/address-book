@@ -4,6 +4,7 @@ import {ContactsProvider} from './components/ContactsProvider.tsx';
 import {ContactsManager} from './views/ContactsManager.tsx';
 import {ContactsViewer} from './views/ContactsViewer.tsx';
 import './styles/App.css';
+import './styles/ContactCardsContainer/ContactCardWrapper.css';
 
 function App() {
   return (
