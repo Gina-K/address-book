@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {Contact} from '../data/types.ts';
-import {useDeleteContact} from '../hooks/useDeleteContact.ts';
+import {Contact} from '../../data/types.ts';
+import {useDeleteContact} from '../../hooks/useDeleteContact.ts';
 import {ContactCardForm} from './ContactCardForm.tsx';
 import {ContactCardStatic} from './ContactCardStatic.tsx';
 

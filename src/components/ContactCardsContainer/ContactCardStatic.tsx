@@ -1,4 +1,4 @@
-import type {Contact} from '../data/types.ts';
+import type {Contact} from '../../data/types.ts';
 
 type Props = {
   contact: Contact;

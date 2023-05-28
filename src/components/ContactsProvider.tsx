@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {ContactsContext} from '../contexts/ContactsContext.ts';
-import {getInitialContacts} from '../utils/storage.ts';
+import {getInitialContacts} from '../utils/common.ts';
 
 export const ContactsProvider = ({children}) => {
   const initialContacts = getInitialContacts();

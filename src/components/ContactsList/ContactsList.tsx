@@ -1,8 +1,8 @@
-import {Contact} from '../data/types.ts';
-import {useContacts} from '../hooks/useContacts.ts';
+import {Contact} from '../../data/types.ts';
+import {useContacts} from '../../hooks/useContacts.ts';
 import {ContactListItem} from './ContactListItem.tsx';
 
-export const ContactList = () => {
+export const ContactsList = () => {
   const contacts = useContacts();
 
   return (
