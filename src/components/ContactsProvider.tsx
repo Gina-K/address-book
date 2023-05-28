@@ -1,10 +1,15 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {v4 as uuidv4} from 'uuid';
 import {ContactsContext} from '../contexts/ContactsContext.ts';
-import {PLACEHOLDER_CONTACTS} from '../data/constants.ts';
+import {getInitialContacts} from '../utils/storage.ts';
 
 export const ContactsProvider = ({children}) => {
-  const [contacts, setContacts] = useState(PLACEHOLDER_CONTACTS);
+  const initialContacts = getInitialContacts();
+  const [contacts, setContacts] = useState(initialContacts);
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify((contacts)));
+  }, [contacts]);
 
   const handleDeleteContact = (id) => {
     setContacts((prevContacts) => {
