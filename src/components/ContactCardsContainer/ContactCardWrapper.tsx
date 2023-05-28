@@ -12,6 +12,8 @@ type Props = {
   currentContact: any;
   forceEditing: boolean;
   setIsAdding: any;
+  hasActiveCard: boolean;
+  setHasActiveCard: any;
 }
 
 export const ContactCardWrapper = ({
@@ -22,22 +24,31 @@ export const ContactCardWrapper = ({
   currentContact,
   forceEditing,
   setIsAdding,
+  hasActiveCard,
+  setHasActiveCard,
 }: Props) => {
   const handleDeleteContact = useDeleteContact();
 
   const [isEditing, setIsEditing] = useState(forceEditing || false);
 
   const handleEdit = () => {
+    if (hasActiveCard) {
+      return;
+    }
+
     setIsEditing(true);
+    setHasActiveCard(true);
   };
 
   const handleCancel = () => {
     setIsEditing(false);
     setIsAdding(false);
+    setHasActiveCard(false);
   };
 
   const handleSave = (e) => {
     setIsEditing(false);
+    setHasActiveCard(false);
     onSubmit(e);
   };
 

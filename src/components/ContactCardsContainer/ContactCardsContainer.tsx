@@ -19,6 +19,7 @@ export const ContactCardsContainer = () => {
 
   const [currentContact, setCurrentContact] = useState(initialContact);
   const [isAdding, setIsAdding] = useState(false);
+  const [hasActiveCard, setHasActiveCard] = useState(false);
 
   const handleContactChange = (e) => {
     setCurrentContact({
@@ -30,16 +31,23 @@ export const ContactCardsContainer = () => {
   const handleSubmitAfterEditing = (e) => {
     e.preventDefault();
     saveEditedContact(currentContact);
+    setHasActiveCard(false);
   };
 
   const handleSubmitAfterAdding = (e) => {
     e.preventDefault();
     saveAddedContact(currentContact);
     setIsAdding(false);
+    setHasActiveCard(false);
   };
 
   const handleAddContact = () => {
+    if (hasActiveCard) {
+      return;
+    }
+
     setIsAdding(true);
+    setHasActiveCard(true);
   };
 
   return (
@@ -54,6 +62,8 @@ export const ContactCardsContainer = () => {
                             currentContact={currentContact}
                             forceEditing={true}
                             setIsAdding={setIsAdding}
+                            hasActiveCard={hasActiveCard}
+                            setHasActiveCard={setHasActiveCard}
         />}
 
       {contacts.map((contact: Contact) => (
@@ -65,6 +75,8 @@ export const ContactCardsContainer = () => {
                               currentContact={currentContact}
                               forceEditing={false}
                               setIsAdding={setIsAdding}
+                              hasActiveCard={hasActiveCard}
+                              setHasActiveCard={setHasActiveCard}
           />
         </li>
       ))}
