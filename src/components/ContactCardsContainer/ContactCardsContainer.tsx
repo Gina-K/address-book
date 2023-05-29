@@ -3,6 +3,7 @@ import {useState} from 'react';
 import type {Contact} from '../../data/types.ts';
 import {useContacts} from '../../hooks/useContacts.ts';
 import {useSaveContact} from '../../hooks/useSaveContact.ts';
+import {AddButton} from '../Common/AddButton.tsx';
 import {ContactCardWrapper} from './ContactCardWrapper.tsx';
 import '../../styles/ContactCardsContainer/ContactCardsContainer.css';
 
@@ -53,8 +54,8 @@ export const ContactCardsContainer = () => {
 
   return (
     <ul className="cards-container">
-      <li className="card-item card-item__add-btn">
-        <button type="button" onClick={handleAddContact}>Add contact</button>
+      <li className="card-item card-item_center">
+        <AddButton onAdd={handleAddContact}></AddButton>
       </li>
 
       {isAdding &&

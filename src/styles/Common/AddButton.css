@@ -1,0 +1,17 @@
+.add-button {
+  box-sizing: border-box;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-button__icon {
+  fill: var(--accent-color);
+}
+
+.add-button:hover .add-button__icon {
+  fill: var(--secondary-accent-color);
+}

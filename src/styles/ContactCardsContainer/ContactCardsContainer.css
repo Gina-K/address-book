@@ -18,18 +18,18 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.card-item__add-btn {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .card-item__row-container {
   margin: .25rem 0;
 }
 
 .card-item__text_align_right {
   text-align: right;
+}
+
+.card-item_center {
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-item_move-up {
