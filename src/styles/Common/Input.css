@@ -27,7 +27,6 @@
 
   border: 1px solid dimgray;
   border-radius: 0.25rem;
-  background-color: white;
   outline: 0;
 }
 
@@ -37,5 +36,5 @@
 }
 
 .input__required {
-  color: red;
+  color: var(--danger-color);
 }

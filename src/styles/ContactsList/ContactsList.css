@@ -2,23 +2,24 @@
   max-width: 36rem;
   margin: auto;
   font-size: 1rem;
-  background-color: beige;
+  /*color: #0D2226;*/
+  border: solid var(--accent-color);
 }
 
 .list-items__container {
   margin: 0;
   padding: 0;
-  background-color: beige;
 }
 
 .list-items__item {
   list-style: none;
-  background-color: aliceblue;
+  background-color: var(--secondary-bg-color);
+  border-bottom: solid 2px var(--accent-color);
 }
 
 .list-items__wide-divider {
   height: 2.5em;
-  background-color: olivedrab;
+  background-color: var(--accent-color);
 }
 
 @media screen and (min-width: 481px) {

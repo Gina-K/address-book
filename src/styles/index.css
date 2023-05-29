@@ -5,6 +5,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --main-bg-color: #E8AA42;
+  --secondary-bg-color: #F8F1F1;
+  --accent-color: #025464;
+  --light-accent-color: #AFCACF;
+  --secondary-accent-color: #E57C23;
+  --text-color: #0D2226;
+  --danger-color: #D8232A;
 }
 
 body {
@@ -13,4 +21,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-size: 16px;
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
 }

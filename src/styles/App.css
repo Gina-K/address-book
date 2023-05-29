@@ -1,7 +1,6 @@
 .page-container {
   width: 100%;
   min-height: 100vh;
-  background-color: lightgray;
 }
 
 .header {
@@ -11,15 +10,13 @@
   justify-content: space-between;
   align-items: baseline;
   font-family: 'Playfair Display', serif;
-  border: solid gray;
 }
 
 .page-title {
   flex-grow: 2;
   text-align: center;
-  border: solid gray;
+  color: var(--accent-color);
 }
 
 .navigation {
-  border: solid gray;
 }

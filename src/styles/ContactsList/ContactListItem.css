@@ -1,7 +1,5 @@
 .contact {
   padding: 1.75em 3.5em;
-  background-color: cornsilk;
-  border: solid gray;
 }
 
 .contact__parameter {
@@ -15,12 +13,13 @@
 .contact__parameter__name {
   font-size: 0.75em;
   font-variant: all-small-caps;
+  color: var(--accent-color);
 }
 
 .contact__parameter__value {
   flex-grow: 2;
   font-family: 'Raleway', sans-serif;
-  border-bottom: dotted lightgray;
+  border-bottom: dotted var(--light-accent-color);
 }
 
 @media screen and (min-width: 481px) {
