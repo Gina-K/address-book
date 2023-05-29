@@ -1,6 +1,7 @@
 import type {Contact} from '../../data/types.ts';
 
 import '../../styles/ContactCardsContainer/ContactCardStatic.css';
+import {TextButton} from '../Common/TextButton.tsx';
 
 type Props = {
   contact: Contact;
@@ -14,8 +15,8 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
     <div className="card-item__static">
       <div>
         <div className="static__row">
-            <span>{firstName} </span>
-            <span>{lastName}</span>
+          <span>{firstName} </span>
+          <span>{lastName}</span>
         </div>
 
         <div className="static__row">
@@ -27,7 +28,7 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
         </div>
 
         <div className="card-item__button_align_right">
-          <button type="button" onClick={onEdit}>Edit</button>
+          <TextButton onEdit={onEdit} type="button">Edit</TextButton>
         </div>
       </div>
     </div>);

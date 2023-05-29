@@ -4,6 +4,7 @@ import {EMAIL_REGEX} from '../../data/constants.ts';
 
 import type {Contact} from '../../data/types.ts';
 import {SelectInput} from '../Common/SelectInput.tsx';
+import {TextButton} from '../Common/TextButton.tsx';
 import {ValidatedTextInput} from '../Common/ValidatedTextInput.tsx';
 
 import '../../styles/ContactCardsContainer/ContactCardForm.css';
@@ -87,7 +88,7 @@ export const ContactCardForm = ({
 
       <div className="card-item__button_align_right">
         <button type="button" onClick={onCancel}>Cancel</button>
-        <button type="submit">Save</button>
+        <TextButton type="submit">Save</TextButton>
       </div>
     </form>
   );

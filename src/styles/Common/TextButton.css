@@ -1,0 +1,19 @@
+.text-btn {
+  padding: 2px 16px 4px 16px;
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-variant: all-small-caps;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: white;
+
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+}
+
+.text-btn:hover,
+.text-btn:focus {
+  background-color: var(--secondary-accent-color);
+}
