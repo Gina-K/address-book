@@ -1,0 +1,13 @@
+.link-btn {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  text-decoration: underline;
+  color: var(--accent-color);
+
+  background: none;
+  border: none;
+}
+
+.link-btn:hover {
+  color: var(--secondary-accent-color);
+}

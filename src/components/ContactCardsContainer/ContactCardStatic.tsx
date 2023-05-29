@@ -1,7 +1,7 @@
 import type {Contact} from '../../data/types.ts';
 
 import '../../styles/ContactCardsContainer/ContactCardStatic.css';
-import {TextButton} from '../Common/TextButton.tsx';
+import {Button} from '../Common/Button.tsx';
 
 type Props = {
   contact: Contact;
@@ -28,7 +28,7 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
         </div>
 
         <div className="card-item__button_align_right">
-          <TextButton onEdit={onEdit} type="button">Edit</TextButton>
+          <Button onClick={onEdit} type="button" className="text-btn">Edit</Button>
         </div>
       </div>
     </div>);
