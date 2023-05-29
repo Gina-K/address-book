@@ -5,19 +5,32 @@
 
 .header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   font-family: 'Playfair Display', serif;
   font-weight: 600;
 }
 
 .page-title {
-  flex-grow: 2;
+  margin-bottom: 0.5em;
   text-align: center;
   color: var(--accent-color);
 }
 
 .navigation {
+  position: fixed;
+  top: 5rem;
+  align-self: flex-end;
+  min-width: 10rem;
+  padding: 0.75rem 1rem 1.25rem 1rem;
+  letter-spacing: 2px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (min-width: 820px) {
+  .navigation {
+    top: 1.25rem;
+  }
 }
