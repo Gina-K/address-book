@@ -19,6 +19,7 @@
 
 .contact__parameter__value {
   flex-grow: 2;
+  font-family: 'Raleway', sans-serif;
   border-bottom: dotted lightgray;
 }
 
