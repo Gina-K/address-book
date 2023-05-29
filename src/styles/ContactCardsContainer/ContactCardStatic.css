@@ -1,0 +1,15 @@
+.card-item__static {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.static__row {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 1.75rem 0 .5rem 0;
+  padding: 0.5rem;
+  color: black;
+  background-color: white;
+  border: 1px solid dimgray;
+}

@@ -1,5 +1,7 @@
 import type {Contact} from '../../data/types.ts';
 
+import '../../styles/ContactCardsContainer/ContactCardStatic.css';
+
 type Props = {
   contact: Contact;
   onEdit: any;
@@ -11,19 +13,16 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
   return (
     <div className="card-item__static">
       <div>
-        <div>
-          <span>{firstName}</span>
+        <div className="static__row">
+            <span>{firstName} </span>
+            <span>{lastName}</span>
         </div>
 
-        <div>
-          <span>{lastName}</span>
-        </div>
-
-        <div>
+        <div className="static__row">
           <span>{email}</span>
         </div>
 
-        <div>
+        <div className="static__row">
           <span>{country}</span>
         </div>
 

@@ -14,9 +14,9 @@
 }
 
 .page-title {
-  border: solid gray;
-  text-align: center;
   flex-grow: 2;
+  text-align: center;
+  border: solid gray;
 }
 
 .navigation {

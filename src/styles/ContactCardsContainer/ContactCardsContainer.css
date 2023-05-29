@@ -17,10 +17,6 @@
   border: solid gray;
 }
 
-.card-item__static {
-  background-color: azure;
-}
-
 .card-item__add-btn {
   display:flex;
   justify-content: center;
