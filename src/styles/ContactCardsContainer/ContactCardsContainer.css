@@ -8,17 +8,13 @@
 }
 
 .card-item {
-  width: 24rem;
-  height: 24rem;
+  width: 18rem;
+  height: 22rem;
   margin: 1rem;
   padding: 0.5rem;
   list-style: none;
   background-color: antiquewhite;
   border: solid gray;
-}
-
-.card-item__form {
-  background-color: azure;
 }
 
 .card-item__static {
@@ -33,4 +29,10 @@
 
 .card-item__button_align_right {
   text-align: right;
+}
+
+@media screen and (min-width: 481px) {
+  .card-item {
+    height: 18rem;
+  }
 }

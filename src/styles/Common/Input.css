@@ -1,0 +1,32 @@
+.input {
+  margin: .25rem 0;
+  padding: 0;
+  border: none;
+}
+
+.input__label {
+  display: inline-block;
+  margin: .25rem 0;
+  font-size: 0.75rem;
+  color: dimgray;
+}
+
+.input__input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid dimgray;
+  border-radius: 0.25rem;
+  background-color: white;
+  color: black;
+  outline: 0;
+}
+
+.input__placeholder {
+  color: gray;
+  font-size: 1rem;
+}
+
+.input__required {
+  color: red;
+}

@@ -1,3 +1,5 @@
+import '../../styles/Common/Input.css';
+
 type Props = {
   name: string;
   type: string;
@@ -7,13 +9,27 @@ type Props = {
   maxLength?: any;
   pattern?: string;
   children: any;
+  placeholder: string;
   onChange: (value: string) => void;
 }
 
-export const ValidatedTextInput = ({name, type, value, isRequired, minLength, maxLength, pattern, children, onChange}: Props) => {
+export const ValidatedTextInput = ({
+  name,
+  type,
+  value,
+  isRequired,
+  minLength,
+  maxLength,
+  pattern,
+  children,
+  placeholder,
+  onChange
+}: Props) => {
   return (
-    <div>
-      <label htmlFor={name}>{children} {isRequired && <span aria-label="required">*</span>}</label>
+    <div className="input">
+      <label htmlFor={name} className="input__label">
+        {children} {isRequired && <span aria-label="required" className="input__required">*</span>}
+      </label>
       <input id={name}
              type={type}
              name={name}
@@ -23,6 +39,8 @@ export const ValidatedTextInput = ({name, type, value, isRequired, minLength, ma
              minLength={minLength}
              maxLength={maxLength}
              pattern={pattern}
+             placeholder={placeholder}
+             className="input__input"
       />
     </div>
   );

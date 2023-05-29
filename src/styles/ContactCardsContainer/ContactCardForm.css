@@ -1,0 +1,18 @@
+.card-item__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: azure;
+}
+
+.form__name-container {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+@media screen and (min-width: 481px) {
+  .form__name-container {
+    grid-template-columns: 48.7804878% 48.7804878%;
+    grid-column-gap: 2.43902439%;
+  }
+}
