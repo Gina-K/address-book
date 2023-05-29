@@ -1,0 +1,28 @@
+.contacts-list {
+  max-width: 36rem;
+  margin: auto;
+  font-size: 1rem;
+  background-color: beige;
+}
+
+.list-items__container {
+  margin: 0;
+  padding: 0;
+  background-color: beige;
+}
+
+.list-items__item {
+  list-style: none;
+  background-color: aliceblue;
+}
+
+.list-items__wide-divider {
+  height: 2.5em;
+  background-color: olivedrab;
+}
+
+@media screen and (min-width: 481px) {
+  .contacts-list {
+    font-size: 1.25rem;
+  }
+}

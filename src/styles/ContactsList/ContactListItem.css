@@ -1,0 +1,29 @@
+.contact {
+  padding: 1.75em 3.5em;
+  background-color: cornsilk;
+  border: solid gray;
+}
+
+.contact__parameter {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+.contact__parameter__name {
+  font-size: 0.75em;
+  font-variant: all-small-caps;
+}
+
+.contact__parameter__value {
+  flex-grow: 2;
+  border-bottom: dotted lightgray;
+}
+
+@media screen and (min-width: 481px) {
+  .contact__parameter__name {
+    font-size: 1rem;
+  }
+}
