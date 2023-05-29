@@ -39,8 +39,8 @@ export const ContactCardForm = ({
   } = currentContact;
 
   return (
-    <form onSubmit={onSave} className="card-item__form">
-      <div className="form__name-container">
+    <form onSubmit={onSave} className="card-item__form card-item_move-up">
+      <div className="card-item__row-container form__name-container">
         <ValidatedTextInput name="firstName"
                             type="text"
                             value={firstName}
@@ -65,30 +65,33 @@ export const ContactCardForm = ({
           Last Name
         </ValidatedTextInput>
       </div>
+      <div className="card-item__row-container">
+        <ValidatedTextInput name="email"
+                            type="text"
+                            value={email}
+                            isRequired={true}
+                            onChange={onChange}
+                            pattern={EMAIL_REGEX}
+                            placeholder="example-of@mail.com"
+        >
+          Email
+        </ValidatedTextInput>
+      </div>
 
-      <ValidatedTextInput name="email"
-                          type="text"
-                          value={email}
-                          isRequired={true}
-                          onChange={onChange}
-                          pattern={EMAIL_REGEX}
-                          placeholder="example-of@mail.com"
-      >
-        Email
-      </ValidatedTextInput>
+      <div className="card-item__row-container">
+        <SelectInput name="country"
+                     value={country}
+                     possibleValues={countries}
+                     isRequired={true}
+                     onChange={onChange}
+        >
+          Country
+        </SelectInput>
+      </div>
 
-      <SelectInput name="country"
-                   value={country}
-                   possibleValues={countries}
-                   isRequired={true}
-                   onChange={onChange}
-      >
-        Country
-      </SelectInput>
-
-      <div className="card-item__button_align_right">
-        <Button type="button" onClick={onCancel} className="link-btn">Cancel</Button>
-        <Button type="submit" className="text-btn">Save</Button>
+      <div className="card-item__row-container card-item__text_align_right">
+        <Button type="button" onClick={onCancel} className="link-btn card-item_space-around">Cancel</Button>
+        <Button type="submit" className="text-btn card-item_space-around">Save</Button>
       </div>
     </form>
   );

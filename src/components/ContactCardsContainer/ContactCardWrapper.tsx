@@ -59,7 +59,7 @@ export const ContactCardWrapper = ({
 
   return (
     <>
-      <div className="card-item__button_align_right">
+      <div className="card-item__text_align_right">
         <DeleteButton onDelete={handleDelete} />
       </div>
       {isEditing ?
