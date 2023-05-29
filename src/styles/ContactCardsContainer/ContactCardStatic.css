@@ -1,7 +1,9 @@
 .card-item__static {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0 1rem;
 }
 
 .static__row {
@@ -10,4 +12,6 @@
   margin: 1.75rem 0 .5rem 0;
   padding: 0.5rem;
   background-color: white;
+  border-radius: 0.25rem;
+  border-bottom: dotted var(--light-accent-color);
 }

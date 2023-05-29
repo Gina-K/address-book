@@ -71,7 +71,7 @@ export const ContactCardForm = ({
                           isRequired={true}
                           onChange={onChange}
                           pattern={EMAIL_REGEX}
-                          placeholder="Email"
+                          placeholder="example-of@mail.com"
       >
         Email
       </ValidatedTextInput>
