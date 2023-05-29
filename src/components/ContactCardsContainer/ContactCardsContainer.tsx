@@ -4,6 +4,7 @@ import type {Contact} from '../../data/types.ts';
 import {useContacts} from '../../hooks/useContacts.ts';
 import {useSaveContact} from '../../hooks/useSaveContact.ts';
 import {ContactCardWrapper} from './ContactCardWrapper.tsx';
+import '../../styles/ContactCardsContainer/ContactCardsContainer.css';
 
 export const ContactCardsContainer = () => {
   const initialContact = {
