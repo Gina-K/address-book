@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Contact} from '../../data/types.ts';
 import {useDeleteContact} from '../../hooks/useDeleteContact.ts';
+import {DeleteButton} from '../Common/DeleteButton.tsx';
 import {ContactCardForm} from './ContactCardForm.tsx';
 import {ContactCardStatic} from './ContactCardStatic.tsx';
 
@@ -59,7 +60,7 @@ export const ContactCardWrapper = ({
   return (
     <>
       <div className="card-item__button_align_right">
-        <button type="button" onClick={handleDelete}>Delete</button>
+        <DeleteButton onDelete={handleDelete} />
       </div>
       {isEditing ?
         <ContactCardForm contact={contact}

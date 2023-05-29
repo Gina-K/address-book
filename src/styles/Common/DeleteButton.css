@@ -1,0 +1,17 @@
+.delete-button {
+  box-sizing: border-box;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-button__icon {
+  fill: var(--accent-color);
+}
+
+.delete-button:hover .delete-button__icon {
+  fill: var(--secondary-accent-color);
+}
