@@ -17,7 +17,7 @@ export const ContactsProvider = ({children}: ContactsProviderProps) => {
     localStorage.setItem('contacts', JSON.stringify((contacts)));
   }, [contacts]);
 
-  const handleDeleteContact = (id: string) => {
+  const deleteContact = (id: string) => {
     setContacts((prevContacts) => {
       return prevContacts.filter((prevContact) => prevContact.id !== id);
     });
@@ -37,7 +37,7 @@ export const ContactsProvider = ({children}: ContactsProviderProps) => {
   };
 
   return (
-    <ContactsContext.Provider value={{contacts, handleDeleteContact, saveEditedContact, saveAddedContact}}>
+    <ContactsContext.Provider value={{contacts, handleDeleteContact: deleteContact, saveEditedContact, saveAddedContact}}>
       {children}
     </ContactsContext.Provider>
   );

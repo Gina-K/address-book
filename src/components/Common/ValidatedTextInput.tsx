@@ -1,10 +1,11 @@
-import type {ChangeEventHandler, HTMLInputTypeAttribute} from 'react';
+import type {ChangeEventHandler} from 'react';
 
 import '../../styles/Common/Input.css';
+import {InputTypes} from '../../data/types.ts';
 
 type Props = {
   name: string;
-  type: HTMLInputTypeAttribute;
+  type: InputTypes;
   value: string;
   isRequired: boolean;
   minLength?: any;

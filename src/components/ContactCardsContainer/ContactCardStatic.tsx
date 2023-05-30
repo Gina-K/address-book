@@ -1,14 +1,14 @@
-import type {Contact} from '../../data/types.ts';
+import {ButtonTypes, type Contact} from '../../data/types.ts';
 
 import '../../styles/ContactCardsContainer/ContactCardStatic.css';
 import {Button} from '../Common/Button.tsx';
 
 type Props = {
   contact: Contact;
-  onEdit: any;
+  onEditBtn: any;
 }
 
-export const ContactCardStatic = ({contact, onEdit}: Props) => {
+export const ContactCardStatic = ({contact, onEditBtn}: Props) => {
   const {firstName, lastName, email, country} = contact;
 
   return (
@@ -28,7 +28,7 @@ export const ContactCardStatic = ({contact, onEdit}: Props) => {
         </div>
 
         <div className="card-item__text_align_right">
-          <Button onClick={onEdit} type="button" className="text-btn card-item_space-around">Edit</Button>
+          <Button onClick={onEditBtn} type={ButtonTypes.button} className="text-btn card-item_space-around">Edit</Button>
         </div>
       </div>
     </div>);

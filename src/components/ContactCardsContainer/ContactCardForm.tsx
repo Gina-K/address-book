@@ -2,17 +2,17 @@ import {getNames} from 'country-list';
 import {useEffect} from 'react';
 
 import {EMAIL_REGEX} from '../../data/constants.ts';
-import {ButtonTypes, type Contact} from '../../data/types.ts';
+import {ButtonTypes, type Contact, InputTypes} from '../../data/types.ts';
+
+import '../../styles/ContactCardsContainer/ContactCardForm.css';
 import {Button} from '../Common/Button.tsx';
 import {SelectInput} from '../Common/SelectInput.tsx';
 import {ValidatedTextInput} from '../Common/ValidatedTextInput.tsx';
 
-import '../../styles/ContactCardsContainer/ContactCardForm.css';
-
 type Props = {
   contact: Contact;
-  onSave: any;
-  onCancel: any;
+  onSaveBtn: any;
+  onCancelBtn: any;
   onContactChange: any;
   setCurrentContact: any;
   currentContact: any;
@@ -20,8 +20,8 @@ type Props = {
 
 export const ContactCardForm = ({
   contact: storedContact,
-  onSave,
-  onCancel,
+  onSaveBtn,
+  onCancelBtn,
   onContactChange,
   setCurrentContact,
   currentContact
@@ -39,10 +39,10 @@ export const ContactCardForm = ({
   } = currentContact;
 
   return (
-    <form onSubmit={onSave} className="card-item__form card-item_move-up">
+    <form onSubmit={onSaveBtn} className="card-item__form card-item_move-up">
       <div className="card-item__row-container form__name-container">
         <ValidatedTextInput name="firstName"
-                            type="text"
+                            type={InputTypes.text}
                             value={firstName}
                             isRequired={true}
                             onChange={onContactChange}
@@ -54,7 +54,7 @@ export const ContactCardForm = ({
         </ValidatedTextInput>
 
         <ValidatedTextInput name="lastName"
-                            type="text"
+                            type={InputTypes.text}
                             value={lastName}
                             isRequired={true}
                             onChange={onContactChange}
@@ -67,7 +67,7 @@ export const ContactCardForm = ({
       </div>
       <div className="card-item__row-container">
         <ValidatedTextInput name="email"
-                            type="text"
+                            type={InputTypes.text}
                             value={email}
                             isRequired={true}
                             onChange={onContactChange}
@@ -90,7 +90,7 @@ export const ContactCardForm = ({
       </div>
 
       <div className="card-item__row-container card-item__text_align_right">
-        <Button type={ButtonTypes.button} onClick={onCancel} className="link-btn card-item_space-around">Cancel</Button>
+        <Button type={ButtonTypes.button} onClick={onCancelBtn} className="link-btn card-item_space-around">Cancel</Button>
         <Button type={ButtonTypes.submit} className="text-btn card-item_space-around">Save</Button>
       </div>
     </form>

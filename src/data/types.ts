@@ -18,3 +18,10 @@ export enum ButtonTypes {
   reset = 'reset',
   submit = 'submit',
 }
+
+export enum InputTypes {
+  email = 'email',
+  tel = 'tel',
+  text = 'text',
+  url = 'url',
+}

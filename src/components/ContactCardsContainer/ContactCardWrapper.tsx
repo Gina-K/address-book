@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
 
+import {INITIAL_CONTACT} from '../../data/constants.ts';
 import type {Contact} from '../../data/types.ts';
 import {useDeleteContact} from '../../hooks/useDeleteContact.ts';
+import {useSaveContact} from '../../hooks/useSaveContact.ts';
 import {DeleteButton} from '../Common/DeleteButton.tsx';
 import {ContactCardForm} from './ContactCardForm.tsx';
 import {ContactCardStatic} from './ContactCardStatic.tsx';
 
 type Props = {
   contact: Contact;
-  onSubmit: any;
-  onContactChange: any;
-  setCurrentContact: any;
-  currentContact: any;
   forceEditing: boolean;
+  isAdding: boolean;
   setIsAdding: any;
   hasActiveCard: boolean;
   setHasActiveCard: any;
@@ -20,18 +19,17 @@ type Props = {
 
 export const ContactCardWrapper = ({
   contact,
-  onSubmit,
-  onContactChange,
-  setCurrentContact,
-  currentContact,
   forceEditing,
+  isAdding,
   setIsAdding,
   hasActiveCard,
   setHasActiveCard,
 }: Props) => {
-  const handleDeleteContact = useDeleteContact();
+  const deleteContact = useDeleteContact();
+  const {saveEditedContact, saveAddedContact} = useSaveContact();
 
-  const [isEditing, setIsEditing] = useState(forceEditing || false);
+  const [isEditing, setIsEditing] = useState<boolean>(forceEditing || false);
+  const [currentContact, setCurrentContact] = useState<Contact>(INITIAL_CONTACT);
 
   const handleEdit = () => {
     if (hasActiveCard) {
@@ -49,13 +47,23 @@ export const ContactCardWrapper = ({
   };
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     setIsEditing(false);
     setHasActiveCard(false);
-    onSubmit(e);
+    isAdding ? saveAddedContact(currentContact) : saveEditedContact(currentContact);
+    setIsAdding(false);
+    setHasActiveCard(false);
   };
 
   const handleDelete = () => {
-    handleDeleteContact(contact.id);
+    deleteContact(contact.id);
+  };
+
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCurrentContact({
+      ...currentContact,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
@@ -65,13 +73,13 @@ export const ContactCardWrapper = ({
       </div>
       {isEditing ?
         <ContactCardForm contact={contact}
-                         onSave={handleSave}
-                         onCancel={handleCancel}
-                         onContactChange={onContactChange}
+                         onSaveBtn={handleSave}
+                         onCancelBtn={handleCancel}
+                         onContactChange={handleContactChange}
                          setCurrentContact={setCurrentContact}
                          currentContact={currentContact}
         />
-        : <ContactCardStatic contact={contact} onEdit={handleEdit} />}
+        : <ContactCardStatic contact={contact} onEditBtn={handleEdit} />}
     </>
   );
 };
