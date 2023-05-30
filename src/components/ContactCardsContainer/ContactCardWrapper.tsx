@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {INITIAL_CONTACT} from '../../data/constants.ts';
 import type {Contact} from '../../data/types.ts';
@@ -31,40 +31,40 @@ export const ContactCardWrapper = ({
   const [isEditing, setIsEditing] = useState<boolean>(forceEditing || false);
   const [currentContact, setCurrentContact] = useState<Contact>(INITIAL_CONTACT);
 
-  const handleEdit = (): void => {
+  const handleEdit = useCallback((): void => {
     if (hasActiveCard) {
       return;
     }
 
     setIsEditing(true);
     setHasActiveCard(true);
-  };
+  }, [hasActiveCard, setHasActiveCard]);
 
-  const handleCancel = (): void => {
+  const handleCancel = useCallback((): void => {
     setIsEditing(false);
     setIsAdding(false);
     setHasActiveCard(false);
-  };
+  }, [setHasActiveCard, setIsAdding]);
 
-  const handleSave = (e: React.FormEvent<HTMLFormElement>): void => {
+  const handleSave = useCallback((e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     setIsEditing(false);
     setHasActiveCard(false);
     isAdding ? saveAddedContact(currentContact) : saveEditedContact(currentContact);
     setIsAdding(false);
     setHasActiveCard(false);
-  };
+  }, [currentContact, isAdding, saveAddedContact, saveEditedContact, setHasActiveCard, setIsAdding]);
 
-  const handleDelete = (): void => {
+  const handleDelete = useCallback((): void => {
     deleteContact(contact.id);
-  };
+  }, [contact.id, deleteContact]);
 
-  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleContactChange = useCallback((e: React.ChangeEvent<HTMLInputElement>): void => {
     setCurrentContact({
       ...currentContact,
       [e.target.name]: e.target.value,
     });
-  };
+  }, [currentContact]);
 
   return (
     <>

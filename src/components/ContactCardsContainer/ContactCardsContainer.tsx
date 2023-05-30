@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 
 import {INITIAL_CONTACT} from '../../data/constants.ts';
 import type {Contact} from '../../data/types.ts';
@@ -13,14 +13,14 @@ export const ContactCardsContainer = () => {
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [hasActiveCard, setHasActiveCard] = useState<boolean>(false);
 
-  const handleAddContact = (): void => {
+  const handleAddContact = useCallback((): void => {
     if (hasActiveCard) {
       return;
     }
 
     setIsAdding(true);
     setHasActiveCard(true);
-  };
+  }, [hasActiveCard]);
 
   return (
     <ul className="cards-container">

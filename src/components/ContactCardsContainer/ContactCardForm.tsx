@@ -1,5 +1,5 @@
 import {getNames} from 'country-list';
-import React, {ChangeEventHandler, useEffect} from 'react';
+import React, {ChangeEventHandler, useEffect, useMemo} from 'react';
 
 import {EMAIL_REGEX} from '../../data/constants.ts';
 import {ButtonTypes, type Contact, InputTypes} from '../../data/types.ts';
@@ -26,11 +26,12 @@ export const ContactCardForm = ({
   setCurrentContact,
   currentContact
 }: ContactCardFormProps) => {
+
   useEffect(() => {
     setCurrentContact(storedContact);
-  }, []);
+  }, [setCurrentContact, storedContact]);
 
-  const countries: string[] = getNames();
+  const countries: string[] = useMemo(() => getNames(), []);
   const {
     firstName,
     lastName,
