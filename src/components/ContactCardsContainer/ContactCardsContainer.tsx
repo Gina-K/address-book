@@ -1,35 +1,36 @@
-import {useState} from 'react';
-import {INITIAL_CONTACT} from '../../data/constants.ts';
+import React, {useState} from 'react';
 
+import {INITIAL_CONTACT} from '../../data/constants.ts';
 import type {Contact} from '../../data/types.ts';
 import {useContacts} from '../../hooks/useContacts.ts';
 import {useSaveContact} from '../../hooks/useSaveContact.ts';
 import {AddButton} from '../Common/AddButton.tsx';
 import {ContactCardWrapper} from './ContactCardWrapper.tsx';
+
 import '../../styles/ContactCardsContainer/ContactCardsContainer.css';
 
 export const ContactCardsContainer = () => {
   const contacts = useContacts();
   const {saveEditedContact, saveAddedContact} = useSaveContact();
 
-  const [currentContact, setCurrentContact] = useState(INITIAL_CONTACT);
-  const [isAdding, setIsAdding] = useState(false);
-  const [hasActiveCard, setHasActiveCard] = useState(false);
+  const [currentContact, setCurrentContact] = useState<Contact>(INITIAL_CONTACT);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
+  const [hasActiveCard, setHasActiveCard] = useState<boolean>(false);
 
-  const handleContactChange = (e) => {
+  const handleContactChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCurrentContact({
       ...currentContact,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmitAfterEditing = (e) => {
+  const handleSubmitAfterEditing = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     saveEditedContact(currentContact);
     setHasActiveCard(false);
   };
 
-  const handleSubmitAfterAdding = (e) => {
+  const handleSubmitAfterAdding = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     saveAddedContact(currentContact);
     setIsAdding(false);
@@ -55,7 +56,7 @@ export const ContactCardsContainer = () => {
         <li className="card-item">
           <ContactCardWrapper contact={INITIAL_CONTACT}
                               onSubmit={handleSubmitAfterAdding}
-                              onChange={handleContactChange}
+                              onContactChange={handleContactChange}
                               setCurrentContact={setCurrentContact}
                               currentContact={currentContact}
                               forceEditing={true}
@@ -70,7 +71,7 @@ export const ContactCardsContainer = () => {
         <li key={contact.id} className="card-item">
           <ContactCardWrapper contact={contact}
                               onSubmit={handleSubmitAfterEditing}
-                              onChange={handleContactChange}
+                              onContactChange={handleContactChange}
                               setCurrentContact={setCurrentContact}
                               currentContact={currentContact}
                               forceEditing={false}

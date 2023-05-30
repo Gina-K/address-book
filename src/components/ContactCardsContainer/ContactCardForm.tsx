@@ -1,10 +1,10 @@
 import {getNames} from 'country-list';
 import {useEffect} from 'react';
-import {EMAIL_REGEX} from '../../data/constants.ts';
 
-import type {Contact} from '../../data/types.ts';
-import {SelectInput} from '../Common/SelectInput.tsx';
+import {EMAIL_REGEX} from '../../data/constants.ts';
+import {ButtonTypes, type Contact} from '../../data/types.ts';
 import {Button} from '../Common/Button.tsx';
+import {SelectInput} from '../Common/SelectInput.tsx';
 import {ValidatedTextInput} from '../Common/ValidatedTextInput.tsx';
 
 import '../../styles/ContactCardsContainer/ContactCardForm.css';
@@ -13,7 +13,7 @@ type Props = {
   contact: Contact;
   onSave: any;
   onCancel: any;
-  onChange: any;
+  onContactChange: any;
   setCurrentContact: any;
   currentContact: any;
 }
@@ -22,7 +22,7 @@ export const ContactCardForm = ({
   contact: storedContact,
   onSave,
   onCancel,
-  onChange,
+  onContactChange,
   setCurrentContact,
   currentContact
 }: Props) => {
@@ -45,7 +45,7 @@ export const ContactCardForm = ({
                             type="text"
                             value={firstName}
                             isRequired={true}
-                            onChange={onChange}
+                            onChange={onContactChange}
                             minLength={2}
                             maxLength={30}
                             placeholder="First Name"
@@ -57,7 +57,7 @@ export const ContactCardForm = ({
                             type="text"
                             value={lastName}
                             isRequired={true}
-                            onChange={onChange}
+                            onChange={onContactChange}
                             minLength={2}
                             maxLength={30}
                             placeholder="Last Name"
@@ -70,7 +70,7 @@ export const ContactCardForm = ({
                             type="text"
                             value={email}
                             isRequired={true}
-                            onChange={onChange}
+                            onChange={onContactChange}
                             pattern={EMAIL_REGEX}
                             placeholder="example-of@mail.com"
         >
@@ -83,15 +83,15 @@ export const ContactCardForm = ({
                      value={country}
                      possibleValues={countries}
                      isRequired={true}
-                     onChange={onChange}
+                     onChange={onContactChange}
         >
           Country
         </SelectInput>
       </div>
 
       <div className="card-item__row-container card-item__text_align_right">
-        <Button type="button" onClick={onCancel} className="link-btn card-item_space-around">Cancel</Button>
-        <Button type="submit" className="text-btn card-item_space-around">Save</Button>
+        <Button type={ButtonTypes.button} onClick={onCancel} className="link-btn card-item_space-around">Cancel</Button>
+        <Button type={ButtonTypes.submit} className="text-btn card-item_space-around">Save</Button>
       </div>
     </form>
   );

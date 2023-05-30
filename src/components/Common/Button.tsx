@@ -1,10 +1,12 @@
+import type {ButtonTypes} from '../../data/types.ts';
+
 import '../../styles/Common/TextButton.css';
 import '../../styles/Common/LinkButton.css';
 
 type Props = {
   onClick?: any;
   children: string;
-  type: any;
+  type: ButtonTypes;
   className: string;
 }
 

@@ -1,5 +1,6 @@
-import {useState} from 'react';
-import {Contact} from '../../data/types.ts';
+import React, {useState} from 'react';
+
+import type {Contact} from '../../data/types.ts';
 import {useDeleteContact} from '../../hooks/useDeleteContact.ts';
 import {DeleteButton} from '../Common/DeleteButton.tsx';
 import {ContactCardForm} from './ContactCardForm.tsx';
@@ -8,7 +9,7 @@ import {ContactCardStatic} from './ContactCardStatic.tsx';
 type Props = {
   contact: Contact;
   onSubmit: any;
-  onChange: any;
+  onContactChange: any;
   setCurrentContact: any;
   currentContact: any;
   forceEditing: boolean;
@@ -20,7 +21,7 @@ type Props = {
 export const ContactCardWrapper = ({
   contact,
   onSubmit,
-  onChange,
+  onContactChange,
   setCurrentContact,
   currentContact,
   forceEditing,
@@ -47,7 +48,7 @@ export const ContactCardWrapper = ({
     setHasActiveCard(false);
   };
 
-  const handleSave = (e) => {
+  const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     setIsEditing(false);
     setHasActiveCard(false);
     onSubmit(e);
@@ -66,7 +67,7 @@ export const ContactCardWrapper = ({
         <ContactCardForm contact={contact}
                          onSave={handleSave}
                          onCancel={handleCancel}
-                         onChange={onChange}
+                         onContactChange={onContactChange}
                          setCurrentContact={setCurrentContact}
                          currentContact={currentContact}
         />

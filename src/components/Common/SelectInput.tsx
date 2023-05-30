@@ -1,3 +1,5 @@
+import type {ChangeEventHandler} from 'react';
+
 import '../../styles/Common/Input.css';
 
 type Props = {
@@ -6,7 +8,7 @@ type Props = {
   possibleValues: string[];
   isRequired: boolean;
   children: any;
-  onChange: (value: string) => void;
+  onChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
 export const SelectInput = ({name, value, possibleValues, isRequired, children, onChange}: Props) => {
