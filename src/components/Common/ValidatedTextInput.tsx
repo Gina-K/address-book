@@ -1,17 +1,18 @@
 import type {ChangeEventHandler} from 'react';
 
-import '../../styles/Common/Input.css';
 import {InputTypes} from '../../data/types.ts';
 
-type Props = {
+import '../../styles/Common/Input.css';
+
+type ValidatedTextInputProps = {
   name: string;
   type: InputTypes;
   value: string;
   isRequired: boolean;
-  minLength?: any;
-  maxLength?: any;
+  minLength?: number;
+  maxLength?: number;
   pattern?: string;
-  children: any;
+  children: string;
   placeholder: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
@@ -27,7 +28,7 @@ export const ValidatedTextInput = ({
   children,
   placeholder,
   onChange
-}: Props) => {
+}: ValidatedTextInputProps) => {
   return (
     <div className="input">
       <label htmlFor={name} className="input__label">

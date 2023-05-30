@@ -2,20 +2,20 @@ import type {ChangeEventHandler} from 'react';
 
 import '../../styles/Common/Input.css';
 
-type Props = {
+type SelectInputProps = {
   name: string;
   value: string;
   possibleValues: string[];
   isRequired: boolean;
-  children: any;
+  children: string;
   onChange: ChangeEventHandler<HTMLSelectElement>;
 }
 
-export const SelectInput = ({name, value, possibleValues, isRequired, children, onChange}: Props) => {
+export const SelectInput = ({name, value, possibleValues, isRequired, children, onChange}: SelectInputProps) => {
   return (
     <div className="input">
       <label htmlFor="country" className="input__label">
-        {children}{isRequired && <span aria-label="required" className="input__required">*</span>}
+        {children} {isRequired && <span aria-label="required" className="input__required">*</span>}
       </label>
       <select id={name} name={name} value={value} required={isRequired} onChange={onChange} className="input__input">
         <option value="">Please select a {name}</option>

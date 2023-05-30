@@ -1,21 +1,21 @@
 import {getNames} from 'country-list';
-import {useEffect} from 'react';
+import React, {ChangeEventHandler, useEffect} from 'react';
 
 import {EMAIL_REGEX} from '../../data/constants.ts';
 import {ButtonTypes, type Contact, InputTypes} from '../../data/types.ts';
-
-import '../../styles/ContactCardsContainer/ContactCardForm.css';
-import {Button} from '../Common/Button.tsx';
+import {ButtonWithText} from '../Common/ButtonWithText.tsx';
 import {SelectInput} from '../Common/SelectInput.tsx';
 import {ValidatedTextInput} from '../Common/ValidatedTextInput.tsx';
 
-type Props = {
+import '../../styles/ContactCardsContainer/ContactCardForm.css';
+
+type ContactCardFormProps = {
   contact: Contact;
-  onSaveBtn: any;
-  onCancelBtn: any;
-  onContactChange: any;
-  setCurrentContact: any;
-  currentContact: any;
+  onSaveBtn: (e: React.FormEvent<HTMLFormElement>) => void;
+  onCancelBtn: () => void;
+  onContactChange: ChangeEventHandler;
+  setCurrentContact: React.Dispatch<React.SetStateAction<Contact>>;
+  currentContact: Contact;
 }
 
 export const ContactCardForm = ({
@@ -25,7 +25,7 @@ export const ContactCardForm = ({
   onContactChange,
   setCurrentContact,
   currentContact
-}: Props) => {
+}: ContactCardFormProps) => {
   useEffect(() => {
     setCurrentContact(storedContact);
   }, []);
@@ -90,8 +90,13 @@ export const ContactCardForm = ({
       </div>
 
       <div className="card-item__row-container card-item__text_align_right">
-        <Button type={ButtonTypes.button} onClick={onCancelBtn} className="link-btn card-item_space-around">Cancel</Button>
-        <Button type={ButtonTypes.submit} className="text-btn card-item_space-around">Save</Button>
+        <ButtonWithText type={ButtonTypes.button}
+                        onClick={onCancelBtn}
+                        className="link-btn card-item_space-around"
+                        title="Cancel changes">Cancel</ButtonWithText>
+        <ButtonWithText type={ButtonTypes.submit}
+                        className="text-btn card-item_space-around"
+                        title="Save changes">Save</ButtonWithText>
       </div>
     </form>
   );

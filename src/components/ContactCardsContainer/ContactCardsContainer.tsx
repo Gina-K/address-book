@@ -13,7 +13,7 @@ export const ContactCardsContainer = () => {
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [hasActiveCard, setHasActiveCard] = useState<boolean>(false);
 
-  const handleAddContact = () => {
+  const handleAddContact = (): void => {
     if (hasActiveCard) {
       return;
     }

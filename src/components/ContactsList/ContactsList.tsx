@@ -1,4 +1,4 @@
-import {Contact} from '../../data/types.ts';
+import type {Contact} from '../../data/types.ts';
 import {useContacts} from '../../hooks/useContacts.ts';
 import {ContactListItem} from './ContactListItem.tsx';
 

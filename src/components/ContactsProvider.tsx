@@ -17,19 +17,19 @@ export const ContactsProvider = ({children}: ContactsProviderProps) => {
     localStorage.setItem('contacts', JSON.stringify((contacts)));
   }, [contacts]);
 
-  const deleteContact = (id: string) => {
+  const deleteContact = (id: string): void => {
     setContacts((prevContacts) => {
       return prevContacts.filter((prevContact) => prevContact.id !== id);
     });
   };
 
-  const saveEditedContact = (contact: Contact) => {
+  const saveEditedContact = (contact: Contact): void => {
     setContacts((prevContacts) => {
       return prevContacts.map((prevContact) => prevContact.id === contact.id ? contact : prevContact);
     });
   };
 
-  const saveAddedContact = (contact: Contact) => {
+  const saveAddedContact = (contact: Contact): void => {
     setContacts((prevContacts) => {
       contact.id = uuidv4();
       return [...prevContacts, contact];
@@ -37,7 +37,7 @@ export const ContactsProvider = ({children}: ContactsProviderProps) => {
   };
 
   return (
-    <ContactsContext.Provider value={{contacts, handleDeleteContact: deleteContact, saveEditedContact, saveAddedContact}}>
+    <ContactsContext.Provider value={{contacts, deleteContact, saveEditedContact, saveAddedContact}}>
       {children}
     </ContactsContext.Provider>
   );

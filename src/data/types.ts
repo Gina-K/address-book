@@ -8,7 +8,7 @@ export interface Contact {
 
 export interface ContactsContextType {
   contacts: Contact[];
-  handleDeleteContact: (value: string) => void;
+  deleteContact: (value: string) => void;
   saveEditedContact: (value: Contact) => void;
   saveAddedContact: (value: Contact) => void;
 }

@@ -2,11 +2,11 @@ import type {Contact} from '../../data/types.ts';
 
 import '../../styles/ContactsList/ContactListItem.css';
 
-type Props = {
+type ContactListItemProps = {
   contact: Contact;
 }
 
-export const ContactListItem = ({contact}: Props) => {
+export const ContactListItem = ({contact}: ContactListItemProps) => {
   const {firstName, lastName, email, country} = contact;
 
   return (

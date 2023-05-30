@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+
 import {ContactsList} from '../components/ContactsList/ContactsList.tsx';
 
 export const ContactsViewer = () => {
@@ -8,6 +9,7 @@ export const ContactsViewer = () => {
         <h1 className="page-title">View Contact List</h1>
         <Link to="/" className="navigation">Edit</Link>
       </header>
+
       <ContactsList />
     </div>
   );
