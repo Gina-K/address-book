@@ -37,4 +37,12 @@ export const PLACEHOLDER_CONTACTS: Contact[] = [
     country: 'Malta',
   },
 ];
+
+export const INITIAL_CONTACT: Contact = {
+  id: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  country: '',
+};
 export const EMAIL_REGEX = '([a-zA-Z0-9]+[\\._-]?)*[a-zA-Z0-9]+@(([a-zA-Z0-9]+\\.?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,})';

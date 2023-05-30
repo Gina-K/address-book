@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {INITIAL_CONTACT} from '../../data/constants.ts';
 
 import type {Contact} from '../../data/types.ts';
 import {useContacts} from '../../hooks/useContacts.ts';
@@ -8,18 +9,10 @@ import {ContactCardWrapper} from './ContactCardWrapper.tsx';
 import '../../styles/ContactCardsContainer/ContactCardsContainer.css';
 
 export const ContactCardsContainer = () => {
-  const initialContact = {
-    id: '',
-    firstName: 'Init',
-    lastName: 'Contact',
-    email: 'init.contact@example.com',
-    country: 'Angola',
-  };
-
   const contacts = useContacts();
   const {saveEditedContact, saveAddedContact} = useSaveContact();
 
-  const [currentContact, setCurrentContact] = useState(initialContact);
+  const [currentContact, setCurrentContact] = useState(INITIAL_CONTACT);
   const [isAdding, setIsAdding] = useState(false);
   const [hasActiveCard, setHasActiveCard] = useState(false);
 
@@ -60,7 +53,7 @@ export const ContactCardsContainer = () => {
 
       {isAdding &&
         <li className="card-item">
-          <ContactCardWrapper contact={initialContact}
+          <ContactCardWrapper contact={INITIAL_CONTACT}
                               onSubmit={handleSubmitAfterAdding}
                               onChange={handleContactChange}
                               setCurrentContact={setCurrentContact}
